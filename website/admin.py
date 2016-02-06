@@ -11,5 +11,5 @@ class UserProfileAdmin(PlaceholderAdminMixin, admin.ModelAdmin):
     #class Meta:
         #model = UserProfile
 
-admin.site.register(UserProfile, UserProfileAdmin)
+#admin.site.register(UserProfile, UserProfileAdmin)
 

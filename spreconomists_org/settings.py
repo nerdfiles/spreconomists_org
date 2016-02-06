@@ -14,12 +14,20 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '*']
 
 INSTALLED_APPS = (
+    'djangocms_admin_style',
+
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
     'django.contrib.staticfiles',
+    'cms',
+    'menus',
+    'mptt',
+    'sekizai',
+    'treebeard',
+    'django.contrib.messages',
 
     'html_field',
     'website',
@@ -123,10 +131,12 @@ DATABASES = {
         #'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     #},
 #]
+LANGUAGES = [
+    ('en', 'English'),
+]
+LANGUAGE_CODE = 'en'
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 
@@ -135,6 +145,7 @@ USE_L10N = True
 USE_TZ = True
 
 
+SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
