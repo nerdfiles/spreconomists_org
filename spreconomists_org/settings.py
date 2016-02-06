@@ -16,6 +16,8 @@ ALLOWED_HOSTS = ['localhost', '*']
 INSTALLED_APPS = (
     'djangocms_admin_style',
 
+    'dal',
+    'dal_select2',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -28,12 +30,19 @@ INSTALLED_APPS = (
     'sekizai',
     'treebeard',
     'django.contrib.messages',
-
+    'imagestore',
+    'imagestore.imagestore_cms',
+    'mini_charge',
     'html_field',
     'website',
 )
 
 
+IMAGESTORE_SHOW_USER = False
+IMAGESTORE_IMAGE_MODEL = 'mini_charge.MiniChargeImage'
+#IMAGESTORE_ALBUM_MODEL = 'mini_charge.models.MiniChargeAlbum'
+# IMAGESTORE_TEMPLATE = 'base.html'
+# IMAGESTORE_LOAD_CSS = True
 #MIDDLEWARE_CLASSES = [
     ##'django.middleware.security.SecurityMiddleware',
     #'django.contrib.sessions.middleware.SessionMiddleware',

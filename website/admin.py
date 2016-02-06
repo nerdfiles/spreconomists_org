@@ -4,9 +4,9 @@ from cms.admin.placeholderadmin import PlaceholderAdminMixin
 from models import UserProfile
 #from django import forms
 import imagestore.admin
-from mini_charge.models import Charge
-from mini_charge.models import MiniChargeImage
-#from mini_charge.models.album import MiniChargeAlbum
+from models import GalleryItem
+from models import Gallery
+from models import Member
 
 class UserProfileAdmin(PlaceholderAdminMixin, admin.ModelAdmin):
     pass
@@ -18,18 +18,35 @@ class UserProfileAdmin(PlaceholderAdminMixin, admin.ModelAdmin):
 
 #admin.site.register(UserProfile, UserProfileAdmin)
 
-
-
-admin.site.register(Charge)
-
-
-class MiniChargeImageAdmin(imagestore.admin.ImageAdmin):
+class MemberAdmin(admin.ModelAdmin):
 
     def __init__(self, *args, **kwargs):
-        super(MiniChargeImageAdmin, self).__init__(*args, **kwargs)
+        super(MemberAdmin, self).__init__(*args, **kwargs)
 
     class Meta:
-        model = MiniChargeImage
+        model = Member
 
-admin.site.register(MiniChargeImage, MiniChargeImageAdmin)
+admin.site.register(Member, MemberAdmin)
+
+
+class GalleryAdmin(admin.ModelAdmin):
+
+    def __init__(self, *args, **kwargs):
+        super(GalleryAdmin, self).__init__(*args, **kwargs)
+
+    class Meta:
+        model = Gallery
+
+admin.site.register(Gallery, GalleryAdmin)
+
+
+class GalleryItemAdmin(admin.ModelAdmin):
+
+    def __init__(self, *args, **kwargs):
+        super(GalleryItemAdmin, self).__init__(*args, **kwargs)
+
+    class Meta:
+        model = GalleryItem
+
+admin.site.register(GalleryItem, GalleryItemAdmin)
 
