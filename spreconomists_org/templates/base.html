@@ -2,41 +2,146 @@
 <html>
     <head>
         <title>SPR Economists</title>
+
         {% block global_style %}
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+        />
+
+        <link
+          href='https://fonts.googleapis.com/css?family=Arimo&effect=3d-float'
+          rel='stylesheet' 
+          type='text/css'
+        />
+
+        <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css" />
+
+        <!--[if lte IE 8]>
+            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-old-ie-min.css" />
+        <![endif]-->
+        <!--[if gt IE 8]><!-->
+            <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/grids-responsive-min.css" />
+        <!--<![endif]-->
+
         {% endblock global_style %}
+
+        <style>
+        body { font-family: 'Arimo'; }
+
+        a, a:visited, a:link { color: #C0AB53; }
+        .threads {
+          background-image: url('/static/images/houston-bg-2.jpg');
+          /*background-size: 100%;*/
+          background-size: cover; /* For small/tablet */
+          background-position: 0 center;
+          background-repeat: no-repeat;
+        }
+
+        .site-header {
+          text-align: center;
+          padding: 1vw 5vw;
+        }
+        .logo {
+          background: url('/static/images/spre-logo.png') 0 0 no-repeat;
+          display: inline-block;
+          min-width: 117px;
+          min-height: 130px;
+          text-indent: -9999px;
+          background-size: 100%;
+          position: relative;
+        }
+
+        .site-nav {
+          padding: 0 5vw;
+        }
+        .site-nav ul {
+          margin: 0;
+          padding: 0;
+        }
+        .site-nav  li {
+          text-align: center;
+        }
+        .site-nav a { font-size: larger; text-decoration: none; color: #fff; }
+
+        .page {
+          min-height: 25vw;
+          color: #fff;
+          padding: 5vw;
+        }
+        .page p {
+
+          line-height: 1.525;
+        }
+
+        .phat-footer {
+          color: #fff;
+          padding: 5vw;
+        }
+        .phat-footer .card--org {
+          margin-bottom: 1rem;
+        }
+        .phat-footer .card--copyright { }
+
+        </style>
     </head>
 
     <body>
 
-    {% block menu_content %}
-    <ul>
-      <li>
-        <a href="/about">About</a>
-      </li>
-      <li>
-        <a href="/events">Events</a>
-      </li>
-      <li>
-        <a href="/gallery">Gallery</a>
-      </li>
-      <li>
-        <a href="/contact-us">Contact Us</a>
-      </li>
-    </ul>
-    {% endblock menu_content %}
+      <div class="threads">
 
-    {% block main_content %}
-    <div>
-      <h1>No content provided</h1>
-    </div>
-    {% endblock main_content %}
+        <header class="site-header">
+        {% block header_content %}
+          <a
+            href="."
+            title="SPR Economists Logo"
+            class="logo"
+          >SPR Economists</a>
+        {% endblock header_content %}
+        </header>
 
-    {% block footer_content %}
-    <div>
-    Society of Petroleum Resources Economists P.O. Box 282 Houston, TX 77001 USA
-    Copyright 2015 Society of Petroleum Resources Economists. All Rights Reserved.
-    </div>
-    {% endblock footer_content %}
+        <nav role="nav" class="site-nav font-effect-3d-float">
+        {% block menu_content %}
+          <ul class="pure-g">
+            <li class="pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-3">
+              <a href="/events">Events</a>
+            </li>
+            <li class="pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-3">
+              <a href="/gallery">Gallery</a>
+            </li>
+            <li class="pure-u-1 pure-u-sm-1 pure-u-md-1-3 pure-u-lg-1-3">
+              <a href="/contact">Contact Us</a>
+            </li>
+          </ul>
+        {% endblock menu_content %}
+        </nav>
+
+        <div role="main" class="pure-g page font-effect-3d-float">
+          {% block main_content %}
+            <h1>No content provided</h1>
+          {% endblock main_content %}
+        </div>
+
+        <div class="phat-footer font-effect-3d-float">
+        {% block footer_content %}
+        <div itemscope itemtype="http://schema.org/Organization" class="card--org">
+          <span itemprop="name">
+            Society of Petroleum Resources Economists
+          </span>
+          <div itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
+              <span itemprop="streetAddress">P.O. Box 282</span>
+              <span itemprop="addressLocality">Houston, TX</span>
+              <span itemprop="postalCode">77001</span>
+              <span itemprop="">USA</span>
+          </div>
+        </div>
+        <div class="card--copyright">
+          Copyright &copy; 2015. Society of Petroleum Resources Economists. All Rights Reserved.
+        </div>
+        {% endblock footer_content %}
+        </div>
+
+      </div>
 
     </body>
 
