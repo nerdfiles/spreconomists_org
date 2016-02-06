@@ -1,22 +1,29 @@
 # -*- coding: utf-8 -*-
 from django.contrib import admin
+
 from cms.admin.placeholderadmin import PlaceholderAdminMixin
-from models import UserProfile
 #from django import forms
 import imagestore.admin
-from models import GalleryItem
-from models import Gallery
-from models import Member
+
+from .models import EventItem
+from .models import GalleryItem
+
+from .models import Gallery
+
+from .models import UserProfile
+from .models import Member
+
 
 class UserProfileAdmin(PlaceholderAdminMixin, admin.ModelAdmin):
     pass
-    #def __init__(self, *args, **kwargs):
+    # def __init__(self, *args, **kwargs):
         #super(UserProfileAdmin, self).__init__(*args, **kwargs)
 
-    #class Meta:
+    # class Meta:
         #model = UserProfile
 
 #admin.site.register(UserProfile, UserProfileAdmin)
+
 
 class MemberAdmin(admin.ModelAdmin):
 
@@ -40,6 +47,17 @@ class GalleryAdmin(admin.ModelAdmin):
 admin.site.register(Gallery, GalleryAdmin)
 
 
+class EventItemAdmin(admin.ModelAdmin):
+
+    def __init__(self, *args, **kwargs):
+        super(EventItemAdmin, self).__init__(*args, **kwargs)
+
+    class Meta:
+        model = EventItem
+
+admin.site.register(EventItem, EventItemAdmin)
+
+
 class GalleryItemAdmin(admin.ModelAdmin):
 
     def __init__(self, *args, **kwargs):
@@ -49,4 +67,3 @@ class GalleryItemAdmin(admin.ModelAdmin):
         model = GalleryItem
 
 admin.site.register(GalleryItem, GalleryItemAdmin)
-

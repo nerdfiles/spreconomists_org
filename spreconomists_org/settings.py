@@ -15,9 +15,11 @@ ALLOWED_HOSTS = ['localhost', '*']
 
 INSTALLED_APPS = (
     'djangocms_admin_style',
+    'django_extensions',
 
     'dal',
     'dal_select2',
+    'html_field',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -33,7 +35,6 @@ INSTALLED_APPS = (
     'imagestore',
     'imagestore.imagestore_cms',
     'mini_charge',
-    'html_field',
     'website',
 )
 
@@ -159,3 +160,5 @@ SITE_ID = 1
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
