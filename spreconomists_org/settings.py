@@ -25,6 +25,7 @@ INSTALLED_APPS = (
     'website',
 )
 
+
 #MIDDLEWARE_CLASSES = [
     ##'django.middleware.security.SecurityMiddleware',
     #'django.contrib.sessions.middleware.SessionMiddleware',
@@ -42,8 +43,15 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+
     'django.contrib.messages.middleware.MessageMiddleware',
+
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.cache.FetchFromCacheMiddleware',
@@ -80,6 +88,9 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.request',
     'django.core.context_processors.media',
     'django.core.context_processors.static',
+
+    'sekizai.context_processors.sekizai',
+    'cms.context_processors.cms_settings',
 )
 
 
