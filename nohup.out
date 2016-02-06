@@ -1,3 +1,7 @@
 2016/02/05 14:14:58 Failed to create logger: open /Library/Timeglass/daemon.log: permission denied
 2016/02/05 17:47:58 Failed to create logger: open /Library/Timeglass/daemon.log: permission denied
 2016/02/05 17:48:10 Failed to create logger: open /Library/Timeglass/daemon.log: permission denied
+2016/02/06 09:00:35 Failed to create logger: open /Library/Timeglass/daemon.log: permission denied
+2016/02/06 09:42:10 Failed to create logger: open /Library/Timeglass/daemon.log: permission denied
+2016/02/06 09:47:24 Failed to create logger: open /Library/Timeglass/daemon.log: permission denied
+2016/02/06 09:47:26 Failed to create logger: open /Library/Timeglass/daemon.log: permission denied

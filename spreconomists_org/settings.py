@@ -14,18 +14,35 @@ DEBUG = True
 ALLOWED_HOSTS = ['localhost', '*']
 
 INSTALLED_APPS = (
+    'djangocms_admin_style',
+
+    'dal',
+    'dal_select2',
+    'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
-    'django.contrib.messages',
     'django.contrib.staticfiles',
-
+    'cms',
+    'menus',
+    'mptt',
+    'sekizai',
+    'treebeard',
+    'django.contrib.messages',
+    'imagestore',
+    'imagestore.imagestore_cms',
+    'mini_charge',
     'html_field',
     'website',
 )
 
 
+IMAGESTORE_SHOW_USER = False
+IMAGESTORE_IMAGE_MODEL = 'mini_charge.MiniChargeImage'
+#IMAGESTORE_ALBUM_MODEL = 'mini_charge.models.MiniChargeAlbum'
+# IMAGESTORE_TEMPLATE = 'base.html'
+# IMAGESTORE_LOAD_CSS = True
 #MIDDLEWARE_CLASSES = [
     ##'django.middleware.security.SecurityMiddleware',
     #'django.contrib.sessions.middleware.SessionMiddleware',
@@ -123,10 +140,12 @@ DATABASES = {
         #'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     #},
 #]
+LANGUAGES = [
+    ('en', 'English'),
+]
+LANGUAGE_CODE = 'en'
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Chicago'
 
 USE_I18N = True
 
@@ -135,6 +154,7 @@ USE_L10N = True
 USE_TZ = True
 
 
+SITE_ID = 1
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
