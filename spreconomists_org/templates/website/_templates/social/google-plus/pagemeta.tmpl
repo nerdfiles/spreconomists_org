@@ -1,0 +1,25 @@
+{% load i18n cms_tags %}
+{% load url from future %}
+ <!-- Google Authorship and Publisher Markup -->
+<link
+  rel="author"
+  href="https://plus.google.com/[Google+_Profile]/posts"
+/>
+<link
+  rel="publisher"
+  href="https://plus.google.com/[Google+_Page_Profile]"
+/>
+
+<!-- Schema.org markup for Google+ -->
+<meta
+  itemprop="name"
+  content="{% page_attribute "page_title" %}"
+/>
+<meta
+  itemprop="description"
+  content="Houston-based Artist Lauren McManus"
+/>
+<meta
+  itemprop="image"
+  content="https://laurenmcman.us/static/img-ui/lauren-mcmanus-logo-og.png"
+/>

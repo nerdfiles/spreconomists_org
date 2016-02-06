@@ -1,0 +1,9 @@
+{% extends "page.tmpl" %}
+{% load payments_tags sekizai_tags %}
+
+{% block body_class %}{{ block.super }} page-journal-template{% endblock %}
+
+{% block stripe_container %}
+{% subscribe_form %}
+{% endblock %}
+
