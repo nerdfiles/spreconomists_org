@@ -18,6 +18,7 @@ INSTALLED_APPS = (
 
     'dal',
     'dal_select2',
+    'html_field',
     'django.contrib.sites',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -33,7 +34,6 @@ INSTALLED_APPS = (
     'imagestore',
     'imagestore.imagestore_cms',
     'mini_charge',
-    'html_field',
     'website',
 )
 

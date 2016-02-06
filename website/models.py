@@ -67,6 +67,41 @@ class MemberPluginModel(CMSPlugin):
     class Meta:
         app_label = 'website'
 
+class Action(models.Model):
+
+    '''
+    Event Items are essentially deferred. They are non-normative, highly descriptive,
+    and maybe even virulently supplied. Heaven's sake, it's a Russellian nominalism.
+    '''
+
+    name = models.CharField(max_length=255)
+    pub_date = models.DateField(blank=True, null=True)
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
+    address = models.CharField(max_length=255)
+    url = models.CharField(max_length=255)
+    actionStatus = models.CharField(max_length=255)
+
+
+class EventItem(models.Model):
+
+    '''
+    Event Items are essentially deferred. They are non-normative, highly descriptive,
+    and maybe even virulently supplied. Heaven's sake, it's a Russellian nominalism.
+    '''
+
+    name = models.CharField(max_length=255)
+    host = models.CharField(max_length=255)
+    canonical_date = models.DateField(blank=True, null=True)
+    pub_date = models.DateField(blank=True, null=True)
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
+    address = models.CharField(max_length=255)
+    phone = models.CharField(max_length=10)
+    url = models.CharField(max_length=255)
+    registration_url = models.CharField(max_length=255)
+    content = HTMLField(c, blank=True)
+
 
 class GalleryItem(models.Model):
 
@@ -80,6 +115,8 @@ class GalleryItem(models.Model):
     pub_date = models.DateField(blank=True, null=True)
     # Embeddable content from YouTube, etc.
     content = HTMLField(c, blank=True)
+    url = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
 
     class Meta:
         app_label = 'website'
