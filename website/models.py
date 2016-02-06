@@ -103,6 +103,18 @@ class EventItem(models.Model):
     content = HTMLField(c, blank=True)
 
 
+class EventItemPluginModel(CMSPlugin):
+
+    '''
+        EventItem Plugin Model
+    '''
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        app_label = 'website'
+
+
 class GalleryItem(models.Model):
 
     '''
