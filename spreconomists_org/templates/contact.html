@@ -1,17 +1,40 @@
 {% extends 'base.html' %}
 
 {% block global_style %}
+{{ block.super }}
 <style>
   dl { }
-  dl dt {
+  dl dt::before {
+    background   : url('http://www.spreconomists.org/contact_files/image008.png') -90px 0 no-repeat;
+    display: block;
+    height: 100px;
+    width: 100px;
+    padding-left : 100px;
     background: url('http://www.spreconomists.org/contact_files/image008.png') -90px 0 no-repeat;
-    padding-left: 100px;
+    display: block;
+    height: 100px;
+    width: 100px;
+    /* padding-left: 100px; */
+    background-position-x: -100px;
+    background-position-y: 0;
+    content: ' ';
+    position: absolute;
+    margin-top: 1.63298rem;
+    margin-bottom: 2rem;
   }
-  dl dd { padding-left: 100px; }
+  dl dd + dd {
+    unicode-bidi : bidi-override;
+    direction    : rtl;
+    margin-bottom : 2.75679rem;
+  }
+  dl dd {
+    padding-left : 100px; }
 </style>
 {% endblock global_style %}
 
 {% block main_content %}
+
+<article class="pure-u-1 pure-u-sm-1 pure-u-md-13-24 pure-u-lg-13-24">
 
 <p>The board will be happy to answer any request.</p>
 <p>Feel free to contact the board member you deem the most relevant for the subject matter:</p>
@@ -22,38 +45,40 @@
     Jean-Christophe Rovillain, 2015-2016 SPRE President
   </dt>
   <dd>Founder &amp; Managing Consultant at Enhanced Value Recovery (EVR)</dd>
-  <dd>President@spreconomists.org</dd>
+  <dd>gro.stsimonocerps@tnediserP</dd>
 
   <dt>
     Carl Larry, Communication &amp; Membership Development
   </dt>
   <dd>Director, Business Development, Consultant Oil &amp; Gas at Frost &amp; Sullivan</dd>
-  <dd>Carl@spreconomists.org</dd>
+  <dd>gro.stsimonocerps@lraC</dd>
 
   <dt>
     Thierry Rignol, Journal of Petroleum Resources Economics (JPRE)
   </dt>
   <dd>Oil &amp; Gas Strategy Consultant &amp; Entrepreneur at PacWest Consulting Partners</dd>
-  <dd>Thierry@spreconomists.org</dd>
+  <dd>gro.stsimonocerps@yrreihT</dd>
 
   <dt>
     Jean-Luc Romain, Vice President Europe
   </dt>
   <dd>Equity Analyst - European Oil sector Coordinator at CM-CIC Securities</dd>
-  <dd>Jean-Luc@spreconomists.org</dd>
+  <dd>gro.stsimonocerps@cuL-naeJ</dd>
 
   <dt>
     Hoagie Merry, Student Chapters
   </dt>
   <dd>Graduate Petroleum Engineer - University of Houston</dd>
-  <dd>Hoagie@spreconomists.org</dd>
+  <dd>gro.stsimonocerps@eigaoH</dd>
 
   <dt>
     Christian Fitsch-Mouras, COO &amp; Sergeant-At-Arms
   </dt>
   <dd>Founder &amp; Managing consultant at Astute Development Solutions (ADS)</dd>
-  <dd>VPadmin@spreconomists.org</dd>
+  <dd>gro.stsimonocerps@nimdaPV</dd>
 
 </dl>
+
+</article>
 
 {% endblock main_content %}
