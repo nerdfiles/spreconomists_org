@@ -3,18 +3,17 @@ from __future__ import unicode_literals
 from django.db import models
 from django.contrib.auth.models import User
 
-#from django.core.urlresolvers import reverse
 from cms.models import CMSPlugin
+from cms.plugin_base import CMSPluginBase
+from django.utils.translation import ugettext_lazy as _
 from django.conf import settings
 
 from livesettings.functions import config_value
-
 
 from html_field.db.models import HTMLField
 from html_field import html_cleaner
 
 c = html_cleaner.HTMLCleaner(allow_tags=['a', 'img', 'em', 'strong', 'iframe'])
-
 
 
 class UserProfile(models.Model):
@@ -34,7 +33,7 @@ class UserProfile(models.Model):
         app_label = 'website'
 
 
-class Member(UserProfile):
+class MemberPluginModel(CMSPlugin):
 
     '''
     Member Extensions to User Profile
@@ -52,13 +51,13 @@ class Member(UserProfile):
         app_label = 'website'
 
 
-class MemberPluginModel(CMSPlugin):
 
+class Member(UserProfile):
     '''
         Member Plugin Model
     '''
     member = models.ForeignKey(
-        Member,
+        MemberPluginModel,
         related_name='plugins'
     )
 
@@ -67,6 +66,7 @@ class MemberPluginModel(CMSPlugin):
 
     class Meta:
         app_label = 'website'
+
 
 class Action(models.Model):
 
@@ -91,9 +91,7 @@ class Action(models.Model):
 
 
 
-
-class EventItem(models.Model):
-
+class EventItemPluginModel(CMSPlugin):
     '''
     Event Items are essentially deferred. They are non-normative, highly descriptive,
     and maybe even virulently supplied. Heaven's sake, it's a Russellian nominalism.
@@ -119,14 +117,12 @@ class EventItem(models.Model):
 
 
 
-
-class EventItemPluginModel(CMSPlugin):
-
+class EventItem(models.Model):
     '''
         EventItem Plugin Model
     '''
     event = models.ForeignKey(
-        EventItem,
+        EventItemPluginModel,
         related_name='plugins'
     )
 
@@ -138,8 +134,8 @@ class EventItemPluginModel(CMSPlugin):
         app_label = 'website'
 
 
-class GalleryItem(models.Model):
 
+class GalleryItemPluginModel(CMSPlugin):
     '''
     Gallery Items are essentially deferred. Users will be expected to upload
     their media to a third-party host which might provide for hosting or a
@@ -160,13 +156,14 @@ class GalleryItem(models.Model):
     class Meta:
         app_label = 'website'
 
-class GalleryItemPluginModel(CMSPlugin):
 
+
+class GalleryItem(models.Model):
     '''
         GalleryItem Plugin Model
     '''
     galleryItem = models.ForeignKey(
-        GalleryItem,
+        GalleryItemPluginModel,
         related_name='plugins'
     )
 
@@ -179,8 +176,7 @@ class GalleryItemPluginModel(CMSPlugin):
 
 
 
-class Gallery(models.Model):
-
+class GalleryPluginModel(CMSPlugin):
     '''
     Galleries are groups of Items with arbitrary HTML chunks. Simpler than django-snippets.
     '''
@@ -192,18 +188,17 @@ class Gallery(models.Model):
     def __unicode__(self):
         return self.name
 
-
     class Meta:
         app_label = 'website'
 
 
-class GalleryPluginModel(CMSPlugin):
+class Gallery(models.Model):
 
     '''
         Gallery Plugin Model
     '''
     gallery = models.ForeignKey(
-        Gallery,
+        GalleryPluginModel,
         related_name='plugins'
     )
 
