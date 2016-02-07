@@ -1,13 +1,21 @@
 {% load cms_tags %}
 {% load url from future %}
 
-<h2>{{instance.name}}</h2>
+<h1>{{instance.name}}</h1>
 
 <ul>
 {% for item in items %}
 <li>
 <h2>{{item.name}}</h2>
-<iframe width="560" height="315" src="{{item.youtube_url}}" frameborder="0" allowfullscreen></iframe>
+{% if item.youtube_url %}
+  <iframe width="560" height="315" src="{{item.youtube_url}}" frameborder="0" allowfullscreen></iframe>
+{% else %}
+  {% if item.url %}
+    <a href="{{item.url}}" />
+  {% else %}
+    <p>No content link provided.
+  {% endif %}
+{% endif %}
 </li>
 {% endfor %}
 </ul>

@@ -2,9 +2,45 @@
 {% load cms_tags %}
 {% load url from future %}
 
+
+{% block template_style %}
+<style>
+article {
+  overflow-y: scroll;
+  max-height: 75vh;
+}
+
+article:focus,
+article:target {
+  outline: 3px #003399 solid;
+}
+
+h1 {
+  position: absolute;
+  left: -9999px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li h2 {
+}
+ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+dl { }
+dl dt:nth-child(2n) { background: orange; }
+dl dd { }
+a { text-decoration: none; }
+</style>
+{% endblock template_style %}
+
+
 {% block main_content %}
 
-<article class="pure-u-1 pure-u-sm-1 pure-u-md-5-5 pure-u-lg-5-5">
+<article id="Events" class="pure-u-1 pure-u-sm-1 pure-u-md-3-5 pure-u-lg-3-5">
   <ul>
     {% placeholder event_item %}
   </ul>
