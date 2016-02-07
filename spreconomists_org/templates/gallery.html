@@ -2,6 +2,32 @@
 {% load cms_tags %}
 {% load url from future %}
 
+{% block global_style %}
+{{ block.super }}
+{% endblock global_style %}
+
+{% block template_style %}
+<style>
+h1 {
+  position: absolute;
+  left: -9999px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+ul li h2 {
+  position: absolute;
+  left: -9999px;
+}
+ul li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+</style>
+{% endblock template_style %}
+
 {% block main_content %}
 
 <article class="pure-u-1 pure-u-sm-1 pure-u-md-5-5 pure-u-lg-5-5">
