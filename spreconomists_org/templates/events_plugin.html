@@ -1,4 +1,38 @@
 {% load cms_tags %}
-
-{{instance}}
-{{instance.name}}
+{% load url from future %}
+<li>
+<h2><a href="{{instance.url}}">{{instance.name}}</a></h2>
+<div class="meta">
+  <div class="byline">
+    <span class="byline-label">by</span>
+    <span class="byline-value">{{instance.host}}</span>
+    <span class="location-label">at</span>
+    <span class="location">{{instance.canonical_location}}</span>
+  </div>
+  <div class="schedule">
+    <dl>
+      <dt>When</dt>
+      <dd>{{instance.canonical_date}}</dd>
+      <dt>Where</dt>
+      <dd>{{instance.address}}</dd>
+      <dt>Start Time</dt>
+      <dd>{{instance.start_time}}</dd>
+      <dt>End Time</dt>
+      <dd>{{instance.end_time}}</dd>
+      <dt>Start Date</dt>
+      <dd>{{instance.start_date}}</dd>
+      <dt>End Date</dt>
+      <dd>{{instance.end_date}}</dd>
+    </dl>
+  </div>
+  <div class="contact">
+    <a href="{{instance.phone}}">Contact by Phone</a>
+  </div>
+  <div class="content">
+    {{instance.content}}
+  </div>
+  <div class="context-menu">
+    <a href="{{instance.registration_url}}">Register</a>
+  </div>
+</div>
+</li>

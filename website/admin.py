@@ -5,13 +5,11 @@ from cms.admin.placeholderadmin import PlaceholderAdminMixin
 #from django import forms
 import imagestore.admin
 
-from .models import EventItem
-from .models import GalleryItem
-
-from .models import Gallery
-
+from .models import EventItem, EventItemPluginModel
+from .models import GalleryItem, GalleryItemPluginModel
+from .models import Gallery, GalleryPluginModel
 from .models import UserProfile
-from .models import Member
+from .models import Member, MemberPluginModel
 
 
 class UserProfileAdmin(PlaceholderAdminMixin, admin.ModelAdmin):
@@ -44,7 +42,7 @@ class GalleryAdmin(admin.ModelAdmin):
     class Meta:
         model = Gallery
 
-admin.site.register(Gallery, GalleryAdmin)
+admin.site.register(GalleryPluginModel, GalleryAdmin)
 
 
 class EventItemAdmin(admin.ModelAdmin):
@@ -55,7 +53,7 @@ class EventItemAdmin(admin.ModelAdmin):
     class Meta:
         model = EventItem
 
-admin.site.register(EventItem, EventItemAdmin)
+admin.site.register(EventItemPluginModel, EventItemAdmin)
 
 
 class GalleryItemAdmin(admin.ModelAdmin):
@@ -66,4 +64,4 @@ class GalleryItemAdmin(admin.ModelAdmin):
     class Meta:
         model = GalleryItem
 
-admin.site.register(GalleryItem, GalleryItemAdmin)
+admin.site.register(GalleryItemPluginModel, GalleryItemAdmin)

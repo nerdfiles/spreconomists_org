@@ -51,7 +51,6 @@ class MemberPluginModel(CMSPlugin):
         app_label = 'website'
 
 
-
 class Member(UserProfile):
     '''
         Member Plugin Model
@@ -90,7 +89,6 @@ class Action(models.Model):
         app_label = 'website'
 
 
-
 class EventItemPluginModel(CMSPlugin):
     '''
     Event Items are essentially deferred. They are non-normative, highly descriptive,
@@ -99,10 +97,13 @@ class EventItemPluginModel(CMSPlugin):
 
     name = models.CharField(max_length=255)
     host = models.CharField(max_length=255)
-    canonical_date = models.DateField(blank=True, null=True)
+    canonical_date = models.CharField(max_length=255)
+    canonical_location = models.CharField(max_length=255)
     pub_date = models.DateField(blank=True, null=True)
     start_date = models.DateField(blank=True, null=True)
+    start_time = models.TimeField(blank=True, null=True)
     end_date = models.DateField(blank=True, null=True)
+    end_time = models.TimeField(blank=True, null=True)
     address = models.CharField(max_length=255)
     phone = models.CharField(max_length=10)
     url = models.CharField(max_length=255)
@@ -116,16 +117,23 @@ class EventItemPluginModel(CMSPlugin):
         app_label = 'website'
 
 
-
 class EventItem(models.Model):
     '''
         EventItem Plugin Model
     '''
-    event = models.ForeignKey(
+    plugin = models.ForeignKey(
         EventItemPluginModel,
-        related_name='plugins'
+        related_name='event_item'
     )
 
+
+class GalleryPluginModel(CMSPlugin):
+    '''
+    Galleries are groups of Items with arbitrary HTML chunks. Simpler than django-snippets.
+    '''
+
+    name = models.CharField(max_length=255)
+    pub_date = models.DateField(blank=True, null=True)
 
     def __unicode__(self):
         return self.name
@@ -133,6 +141,16 @@ class EventItem(models.Model):
     class Meta:
         app_label = 'website'
 
+
+class Gallery(models.Model):
+
+    '''
+        Gallery Plugin Model
+    '''
+    plugin = models.ForeignKey(
+        GalleryPluginModel,
+        related_name='gallery'
+    )
 
 
 class GalleryItemPluginModel(CMSPlugin):
@@ -149,63 +167,20 @@ class GalleryItemPluginModel(CMSPlugin):
     url = models.CharField(max_length=255)
     youtube_url = models.CharField(max_length=255)
     content = HTMLField(c, blank=True)
+    gallery = models.ForeignKey(GalleryPluginModel, on_delete=models.CASCADE)
 
     def __unicode__(self):
         return self.name
 
     class Meta:
         app_label = 'website'
-
 
 
 class GalleryItem(models.Model):
     '''
         GalleryItem Plugin Model
     '''
-    galleryItem = models.ForeignKey(
+    plugin = models.ForeignKey(
         GalleryItemPluginModel,
-        related_name='plugins'
+        related_name='gallery_item'
     )
-
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-        app_label = 'website'
-
-
-
-class GalleryPluginModel(CMSPlugin):
-    '''
-    Galleries are groups of Items with arbitrary HTML chunks. Simpler than django-snippets.
-    '''
-
-    name = models.CharField(max_length=255)
-    pub_date = models.DateField(blank=True, null=True)
-    gallery_item = models.ForeignKey(GalleryItem, on_delete=models.CASCADE)
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-        app_label = 'website'
-
-
-class Gallery(models.Model):
-
-    '''
-        Gallery Plugin Model
-    '''
-    gallery = models.ForeignKey(
-        GalleryPluginModel,
-        related_name='plugins'
-    )
-
-    def __unicode__(self):
-        return self.name
-
-    class Meta:
-        app_label = 'website'
-
-

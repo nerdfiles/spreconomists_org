@@ -1,12 +1,16 @@
-{% extends 'base.html' %}
+{% load cms_tags %}
+{% load url from future %}
+<li>
+<h2><a href="{{instance.url}}">{{instance.name}}</a></h2>
+{% if instance.youtube_url %}
+  <iframe width="560" height="315" src="{{instance.youtube_url}}" frameborder="0" allowfullscreen></iframe>
+{% else %}
+  {% if instance.url %}
+    <a href="{{instance.url}}" />
+  {% else %}
+    <p>No content link provided.
+  {% endif %}
+{% endif %}
+</li>
 
-{% block main_content %}
-<table>
-{% for event in events %}
-    <tr class="{% cycle 'row1' 'row2' %}">
-      <td>{{event.name}}</td>
-    </tr>
-{% endfor %}
-</table>
-{% endblock %}
 

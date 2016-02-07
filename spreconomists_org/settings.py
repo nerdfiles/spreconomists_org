@@ -11,7 +11,11 @@ SECRET_KEY = 'ywf8ld_@!hk+yfp@*o-yzu^lzc*394a621(lk_*1r=+^-+ynb0'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '*']
+ALLOWED_HOSTS = [
+    'local.spreconomists.org',
+    'localhost',
+    '*'
+]
 
 CMS_TEMPLATES = (
     ('core.html', 'Core'),
@@ -23,8 +27,8 @@ CMS_TEMPLATES = (
 )
 
 INSTALLED_APPS = (
-    'djangocms_admin_style',
 
+    'djangocms_admin_style',
     'dal',
     'dal_select2',
     'html_field',
@@ -35,10 +39,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.staticfiles',
     'cms',
-    'menus',
-    'mptt',
-    'sekizai',
     'treebeard',
+    'menus',
+    'sekizai',
     'django.contrib.messages',
 
     'django_extensions',

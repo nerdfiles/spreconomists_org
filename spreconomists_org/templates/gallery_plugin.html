@@ -1,12 +1,4 @@
-{% extends 'base.html' %}
+{% load cms_tags %}
+{% load url from future %}
 
-{% block main_content %}
-<table>
-{% for event in events %}
-    <tr class="{% cycle 'row1' 'row2' %}">
-      <td>{{event.name}}</td>
-    </tr>
-{% endfor %}
-</table>
-{% endblock %}
-
+<h2>{{instance.name}}</h2>
