@@ -45,9 +45,11 @@ class Member(UserProfile):
     # @see https://stripe.com/docs/api#customer_object
     customer_id = models.CharField(max_length=64)
 
+    def __unicode__(self):
+        return self.first_name
+
     class Meta:
         app_label = 'website'
-
 
 
 class MemberPluginModel(CMSPlugin):
@@ -81,6 +83,14 @@ class Action(models.Model):
     url = models.CharField(max_length=255)
     actionStatus = models.CharField(max_length=255)
 
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        app_label = 'website'
+
+
+
 
 class EventItem(models.Model):
 
@@ -101,12 +111,26 @@ class EventItem(models.Model):
     registration_url = models.CharField(max_length=255)
     content = HTMLField(c, blank=True)
 
+    def __unicode__(self):
+        return self.name
+
+    class Meta:
+        app_label = 'website'
+
+
+
 
 class EventItemPluginModel(CMSPlugin):
 
     '''
         EventItem Plugin Model
     '''
+    event = models.ForeignKey(
+        EventItem,
+        related_name='plugins'
+    )
+
+
     def __unicode__(self):
         return self.name
 
@@ -130,6 +154,9 @@ class GalleryItem(models.Model):
     youtube_url = models.CharField(max_length=255)
     content = HTMLField(c, blank=True)
 
+    def __unicode__(self):
+        return self.name
+
     class Meta:
         app_label = 'website'
 
@@ -138,6 +165,12 @@ class GalleryItemPluginModel(CMSPlugin):
     '''
         GalleryItem Plugin Model
     '''
+    galleryItem = models.ForeignKey(
+        GalleryItem,
+        related_name='plugins'
+    )
+
+
     def __unicode__(self):
         return self.name
 
@@ -156,6 +189,10 @@ class Gallery(models.Model):
     pub_date = models.DateField(blank=True, null=True)
     gallery_item = models.ForeignKey(GalleryItem, on_delete=models.CASCADE)
 
+    def __unicode__(self):
+        return self.name
+
+
     class Meta:
         app_label = 'website'
 
@@ -165,6 +202,11 @@ class GalleryPluginModel(CMSPlugin):
     '''
         Gallery Plugin Model
     '''
+    gallery = models.ForeignKey(
+        Gallery,
+        related_name='plugins'
+    )
+
     def __unicode__(self):
         return self.name
 

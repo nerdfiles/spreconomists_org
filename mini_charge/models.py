@@ -10,6 +10,14 @@ from django.conf import settings
 
 from livesettings.functions import config_value
 
+class MiniChargeImage(BaseImage):
+
+    class Meta(BaseImage.Meta):
+        abstract = False
+        app_label = 'mini_charge'
+        db_table = 'mini_charge_image'
+
+
 class MiniChargeAlbum(BaseAlbum):
 
     class Meta(BaseAlbum.Meta):
@@ -17,13 +25,6 @@ class MiniChargeAlbum(BaseAlbum):
         app_label = 'mini_charge'
         db_table = 'mini_charge_album'
 
-
-class MiniChargeImage(BaseImage):
-
-    class Meta(BaseImage.Meta):
-        abstract = False
-        app_label = 'mini_charge'
-        db_table = 'mini_charge_image'
 
 
 class Charge(models.Model):
