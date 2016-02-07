@@ -59,6 +59,10 @@ class GalleryPlugin(CMSPluginBase):
 
     cache = False
     def render(self, context, instance, placeholder):
+        gallery_items = GalleryItemPluginModel.objects.all()
+        context['items'] = gallery_items
+        #instance['items'] = gallery_items
+        #import pdb; pdb.set_trace()
         context = super(GalleryPlugin, self).render(context, instance, placeholder)
         return context
 

@@ -135,6 +135,10 @@ class GalleryPluginModel(CMSPlugin):
     name = models.CharField(max_length=255)
     pub_date = models.DateField(blank=True, null=True)
 
+    def get_items(self):
+        q = GalleryItemPluginModel.objects.all()
+        return q
+
     def __unicode__(self):
         return self.name
 
