@@ -15,8 +15,10 @@ ALLOWED_HOSTS = ['localhost', '*']
 
 CMS_TEMPLATES = (
     ('core.html', 'Core'),
-    #('page.tmpl', 'Page'),
-    #('page-detail.tmpl', 'Page Detail'),
+    ('Home.html', 'Home Detail'),
+    ('events.html', 'Events Detail'),
+    ('gallery.html', 'Gallery Detail'),
+    ('contact.html', 'Contact Detail'),
 
 )
 

@@ -1,5 +1,6 @@
 from django.template import RequestContext
 from django.shortcuts import render_to_response
+from website.models import EventItem
 
 def home(request):
 
@@ -27,9 +28,13 @@ def events(request):
     '''
     @deprecated
     '''
+    _events = EventItem.objects.all()
 
     return render_to_response(
         'events.html',
+        {
+            'events': _events
+        },
         context_instance=RequestContext(request)
     )
 
