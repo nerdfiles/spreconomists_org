@@ -2,3 +2,9 @@
 {% load url from future %}
 
 <h2>{{instance.name}}</h2>
+
+<ul>
+{% for item in instance.related.gallery_item %}
+<li>{{item}}</li>
+{% endfor %}
+</ul>

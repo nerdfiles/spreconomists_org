@@ -44,9 +44,7 @@ class GalleryItemPlugin(CMSPluginBase):
 
     cache = False
     def render(self, context, instance, placeholder):
-        context.update({
-            'instance': instance,
-        })
+        context = super(GalleryItemPlugin, self).render(context, instance, placeholder)
         return context
 
 plugin_pool.register_plugin(GalleryItemPlugin)
@@ -61,9 +59,7 @@ class GalleryPlugin(CMSPluginBase):
 
     cache = False
     def render(self, context, instance, placeholder):
-        context.update({
-            'instance': instance,
-        })
+        context = super(GalleryPlugin, self).render(context, instance, placeholder)
         return context
 
 plugin_pool.register_plugin(GalleryPlugin)
