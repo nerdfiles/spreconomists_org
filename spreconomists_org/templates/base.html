@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8" />
         <title>SPR Economists</title>
 
         {% block global_style %}
@@ -95,9 +96,21 @@
     </head>
 
     <body>
+
       {% cms_toolbar %}
 
       <div class="threads">
+
+        <!--
+
+              _                   _                     _             
+             (_)  _              | |                   | |            
+           ___ _ _| |_ _____ _____| |__  _____ _____  __| |_____  ____ 
+         /___) (_   _) ___ (_____)  _ \| ___ (____ |/ _  | ___ |/ ___)
+        |___ | | | |_| ____|     | | | | ____/ ___ ( (_| | ____| |    
+        (___/|_|  \__)_____)     |_| |_|_____)_____|\____|_____)_|    
+
+        -->
 
         <header class="site-header">
         {% block header_content %}
@@ -108,6 +121,15 @@
           >SPR Economists</a>
         {% endblock header_content %}
         </header>
+
+        <!--
+
+         ____  _____ _   _ 
+        |  _ \(____ | | | |
+        | | | / ___ |\ V / 
+        |_| |_\_____| \_/  
+
+        -->
 
         <nav role="nav" class="site-nav font-effect-3d-float">
         {% block menu_content %}
@@ -125,10 +147,35 @@
         {% endblock menu_content %}
         </nav>
 
+        <!--
+
+                     _       
+                    (_)      
+         ____  _____ _ ____  
+        |    \(____ | |  _ \ 
+        | | | / ___ | | | | |
+        |_|_|_\_____|_|_| |_|
+                            
+
+        -->
+
         <div role="main" class="pure-g page font-effect-3d-float">
           {% block main_content %}
           {% endblock main_content %}
         </div>
+
+
+        <!--
+
+               _                          ___                             
+              | |            _           / __)            _               
+         ____ | |__  _____ _| |_ _____ _| |__ ___   ___ _| |_ _____  ____ 
+        |  _ \|  _ \(____ (_   _|_____|_   __) _ \ / _ (_   _) ___ |/ ___)
+        | |_| | | | / ___ | | |_        | | | |_| | |_| || |_| ____| |    
+        |  __/|_| |_\_____|  \__)       |_|  \___/ \___/  \__)_____)_|    
+        |_|                                                               
+
+        -->
 
         <div class="phat-footer font-effect-3d-float">
         {% block footer_content %}
