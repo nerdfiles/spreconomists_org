@@ -2,7 +2,6 @@ from __future__ import unicode_literals
 
 from django.db import models
 from django.contrib.auth.models import User
-from imagestore.models.bases.image import BaseImage
 
 #from django.core.urlresolvers import reverse
 from cms.models import CMSPlugin
@@ -126,9 +125,10 @@ class GalleryItem(models.Model):
     name = models.CharField(max_length=255)
     pub_date = models.DateField(blank=True, null=True)
     # Embeddable content from YouTube, etc.
-    content = HTMLField(c, blank=True)
-    url = models.CharField(max_length=255)
     address = models.CharField(max_length=255)
+    url = models.CharField(max_length=255)
+    youtube_url = models.CharField(max_length=255)
+    content = HTMLField(c, blank=True)
 
     class Meta:
         app_label = 'website'

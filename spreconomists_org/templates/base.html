@@ -1,3 +1,6 @@
+{% load staticfiles cms_tags sekizai_tags %}
+{% load url from future %}
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -84,16 +87,19 @@
         .phat-footer .card--copyright { }
 
         </style>
+
+        {% render_block "css" %}
     </head>
 
     <body>
+      {% cms_toolbar %}
 
       <div class="threads">
 
         <header class="site-header">
         {% block header_content %}
           <a
-            href="."
+            href="http://localhost:9999"
             title="SPR Economists Logo"
             class="logo"
           >SPR Economists</a>
@@ -117,6 +123,9 @@
         </nav>
 
         <div role="main" class="pure-g page font-effect-3d-float">
+
+          {% placeholder base_content %}
+
           {% block main_content %}
             <h1>No content provided</h1>
           {% endblock main_content %}
@@ -143,6 +152,7 @@
 
       </div>
 
+      {% render_block "js" %}
     </body>
 
 </html>
