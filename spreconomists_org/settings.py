@@ -13,9 +13,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', '*']
 
+CMS_TEMPLATES = (
+    ('core.html', 'Core'),
+    #('page.tmpl', 'Page'),
+    #('page-detail.tmpl', 'Page Detail'),
+
+)
+
 INSTALLED_APPS = (
     'djangocms_admin_style',
-    'django_extensions',
 
     'dal',
     'dal_select2',
@@ -32,16 +38,29 @@ INSTALLED_APPS = (
     'sekizai',
     'treebeard',
     'django.contrib.messages',
+
+    'django_extensions',
+    'sorl.thumbnail',
+    'tagging',
+
+    'easy_thumbnails',
+    'djangocms_text_ckeditor',
+
+
     'imagestore',
     'imagestore.imagestore_cms',
     'mini_charge',
     'website',
+
 )
 
 
 IMAGESTORE_SHOW_USER = False
 IMAGESTORE_IMAGE_MODEL = 'mini_charge.MiniChargeImage'
-#IMAGESTORE_ALBUM_MODEL = 'mini_charge.models.MiniChargeAlbum'
+IMAGESTORE_ALBUM_MODEL = 'mini_charge.MiniChargeAlbum'
+IMAGESTORE_IMAGE_FORM = 'mini_charge.forms.ImageForm'
+IMAGESTORE_ALBUM_FORM = 'mini_charge.forms.AlbumForm'
+
 # IMAGESTORE_TEMPLATE = 'base.html'
 # IMAGESTORE_LOAD_CSS = True
 #MIDDLEWARE_CLASSES = [
@@ -79,7 +98,7 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'spreconomists_org.urls'
 
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'assets')
-MEDIA_URL = '/_assets/'
+MEDIA_URL = '/assets/'
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 

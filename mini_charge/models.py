@@ -2,12 +2,20 @@
 
 from django.db import models
 from imagestore.models.bases.image import BaseImage
+from imagestore.models.bases.album import BaseAlbum
 
 #from django.core.urlresolvers import reverse
 from cms.models import CMSPlugin
 from django.conf import settings
 
 from livesettings.functions import config_value
+
+class MiniChargeAlbum(BaseAlbum):
+
+    class Meta(BaseAlbum.Meta):
+        abstract = False
+        app_label = 'mini_charge'
+        db_table = 'mini_charge_album'
 
 
 class MiniChargeImage(BaseImage):
